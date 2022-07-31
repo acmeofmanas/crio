@@ -81,12 +81,12 @@ yum repolist -y
 #Centos 8 Stream    CentOS_8_Stream
 #Centos 7   CentOS_7
  
- 
+: '  
 #set OS version
-OS=CentOS_7
+OS=CentOS_8
  
 #set CRI-O
-VERSION=1.20
+VERSION=1.24
  
 # Install CRI-O
  curl -L -o /etc/yum.repos.d/devel:kubic:libcontainers:stable.repo https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/$OS/devel:kubic:libcontainers:stable.repo
@@ -95,4 +95,5 @@ VERSION=1.20
  
  
 ##Install Kubernetes, specify Version as CRI-O
-yum install -y kubelet-1.20.0-0 kubeadm-1.20.0-0 kubectl-1.20.0-0 --disableexcludes=kubernetes
+yum install -y kubelet-1.24.0-0 kubeadm-1.24.0-0 kubectl-1.24.0-0 --disableexcludes=kubernetes
+'
