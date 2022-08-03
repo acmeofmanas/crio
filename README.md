@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 >Last month Kubernetes release 1.24 and it comes with a major change which is removal of dockershim. The dockershim component of Kubernetes allows to use Docker as a Kubernetes's container runtime
 
  **If you are looking for more details check out “https://kubernetes.io/docs/tasks/administer-cluster/migrating-from-dockershim/check-if-dockershim-removal-affects-you/" **
