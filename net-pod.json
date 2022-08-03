@@ -1,11 +1,11 @@
 {
   "metadata": {
-    "name": "networking",
-    "uid": "networking-pod-uid",
+    "name": "ngnix-pod",
+    "uid": "nginx-pod-uid",
     "namespace": "default",
     "attempt": 1
   },
-  "hostname": "networking",
+  "hostname": "proxy",
   "port_mappings": [
     {
       "container_port": 80
