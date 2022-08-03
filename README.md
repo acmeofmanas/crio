@@ -1,2 +1,1 @@
-# added pre-req-1
-pre-requisite for all config details for linux
+This guide will walk you through to install CRI-O runtime on Ubuntu and run your first pod and container on Ubuntu. CRI-O is container runtime interface designed to provide an integration path between OCI conformant runtime and kubelet.
