@@ -58,4 +58,18 @@ RuntimeApiVersion:  v1
     ]
   }
 }
+
+3. systemctl status crio
+● crio.service - Container Runtime Interface for OCI (CRI-O)
+     Loaded: loaded (/lib/systemd/system/crio.service; enabled; vendor preset: enabled)
+     Active: active (running) since Wed 2022-08-03 21:44:22 +08; 2h 5min ago
+       Docs: https://github.com/cri-o/cri-o
+   Main PID: 16084 (crio)
+      Tasks: 11
+     Memory: 11.0M
+     CGroup: /system.slice/crio.service
+             └─16084 /usr/bin/crio
+
+Aug 03 21:44:22 worker1 crio[16084]: time="2022-08-03 21:44:22.800749410+08:00" level=info msg="Node configuratio>
+Aug 03 21:44:22 worker1 systemd[1]: Started Container Runtime Interface for OCI (CRI-O)
 ```
