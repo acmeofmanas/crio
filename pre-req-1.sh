@@ -1,8 +1,8 @@
 ##Update the OS
-yum update -y
+apt update -y
  
-## Install yum-utils, bash completion, git, and more
-yum install yum-utils nfs-utils bash-completion git -y
+## Install apt-utils, bash completion, git, and more
+apt install apt-utils nfs-utils bash-completion git -y
  
 ##Disable firewall starting from Kubernetes v1.19 onwards
 systemctl disable firewalld --now
@@ -40,18 +40,19 @@ net.bridge.bridge-nf-call-ip6tables = 1
 EOF
  
  sysctl --system
- 
+echo "sleep"
+sleep 10
 : ' 
 ###
 ## configuring Kubernetes repositories
-cat <<EOF |  tee /etc/yum.repos.d/kubernetes.repo
+cat <<EOF |  tee /etc/apt.repos.d/kubernetes.repo
 [kubernetes]
 name=Kubernetes
-baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-\$basearch
+baseurl=https://packages.cloud.google.com/apt/repos/kubernetes-el7-\$basearch
 enabled=1
 gpgcheck=1
 repo_gpgcheck=1
-gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+gpgkey=https://packages.cloud.google.com/apt/doc/apt-key.gpg https://packages.cloud.google.com/apt/doc/rpm-package-key.gpg
 exclude=kubelet kubeadm kubectl
 EOF
  '
@@ -70,7 +71,7 @@ sed -i '/swap/d' /etc/fstab
  
  
 ##Refresh repo list
-yum repolist -y
+apt repolist -y
  
  
 ## Install CRI-O binaries
@@ -89,13 +90,13 @@ OS=CentOS_8
 VERSION=1.24
  
 # Install CRI-O
- curl -L -o /etc/yum.repos.d/devel:kubic:libcontainers:stable.repo https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/$OS/devel:kubic:libcontainers:stable.repo
- curl -L -o /etc/yum.repos.d/devel:kubic:libcontainers:stable:cri-o:$VERSION.repo https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable:cri-o:$VERSION/$OS/devel:kubic:libcontainers:stable:cri-o:$VERSION.repo
- yum install cri-o -y
+ curl -L -o /etc/apt.repos.d/devel:kubic:libcontainers:stable.repo https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/$OS/devel:kubic:libcontainers:stable.repo
+ curl -L -o /etc/apt.repos.d/devel:kubic:libcontainers:stable:cri-o:$VERSION.repo https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable:cri-o:$VERSION/$OS/devel:kubic:libcontainers:stable:cri-o:$VERSION.repo
+ apt install cri-o -y
  
  
 ##Install Kubernetes, specify Version as CRI-O
-yum install -y kubelet-1.24.0-0 kubeadm-1.24.0-0 kubectl-1.24.0-0 --disableexcludes=kubernetes
+apt install -y kubelet-1.24.0-0 kubeadm-1.24.0-0 kubectl-1.24.0-0 --disableexcludes=kubernetes
 '
 : '
 dnf module list cri-o
