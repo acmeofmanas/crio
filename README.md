@@ -84,7 +84,7 @@ IMAGE                     TAG                 IMAGE ID            SIZE
 docker.io/library/nginx   latest              f493a2ff29351       139MB
 
 ```
-# we need to create first 2 files to run pod and container such as pod-config and container-config
+#### we need to create first 2 files to run pod and container such as pod-config and container-config
 ```
 cat >pod-config.json <<EOF 
 {
