@@ -26,13 +26,15 @@
 - echo "deb [signed-by=/usr/share/keyrings/libcontainers-crio-archive-keyring.gpg] https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable:/cri-o:/$CRIO_VERSION/$OS_VERSION/ /" |  tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable:cri-o:$CRIO_VERSION.list
 
 ## Install CRI-O & start service
+```
 1. apt update
 2. apt install -y cri-o cri-o-runc cri-tools
 3. systemctl enable crio —now
-
+```
 # Validate service status
+```
 1. crictl -r unix:///run/crio/crio.sock version
-	Version:  0.1.0
+Version:  0.1.0
 RuntimeName:  cri-o
 RuntimeVersion:  1.21.7
 RuntimeApiVersion:  v1
@@ -56,4 +58,4 @@ RuntimeApiVersion:  v1
     ]
   }
 }
-
+```
