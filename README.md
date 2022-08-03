@@ -73,3 +73,65 @@ RuntimeApiVersion:  v1
 Aug 03 21:44:22 worker1 crio[16084]: time="2022-08-03 21:44:22.800749410+08:00" level=info msg="Node configuratio>
 Aug 03 21:44:22 worker1 systemd[1]: Started Container Runtime Interface for OCI (CRI-O)
 ```
+### Let's play now to run first container, as it's not as stright as docker run that you might have used to. 
+
+```
+1. crictl pull nginx
+Image is up to date for docker.io/library/nginx@sha256:691eecfa41f219b32acea5a3561a8d8691d8320e5a00e1cb4574de5827e077a7
+
+2. crictl img
+IMAGE                     TAG                 IMAGE ID            SIZE
+docker.io/library/nginx   latest              f493a2ff29351       139MB
+
+```
+# we need to create first 2 files to run pod and container such as pod-config and container-config
+```
+cat >pod-config.json <<EOF 
+{
+    "metadata": {
+        "name": "nginx",
+        "namespace": "default",
+        "attempt": 1,
+        "uid": "hdishd83djaidwnduwk28bcsb"
+    },
+    "linux": {
+    },
+    "log_directory": "/tmp"
+}
+EOF
+
+cat >container-config-1.json <<EOF
+{
+  "metadata": {
+    "name": "nginx-container",
+    "attempt": 1
+  },
+  "image": {
+    "image": "nginx"
+  },
+  "log_path": "nginx.log",
+  "linux": {
+    "security_context": {
+      "namespace_options": {}
+    }
+  }
+}
+EOF
+
+cat >container-config-2.json <<EOF
+{
+  "metadata": {
+    "name": "busybox",
+    "attempt": 1
+  },
+  "image": {
+    "image": "busybox"
+  },
+  "log_path": "busybox.log",
+  "linux": {
+    "security_context": {
+      "namespace_options": {}
+    }
+  }
+}
+EOF
