@@ -2,8 +2,6 @@
 
 # Variable Declaration
 
-# KUBERNETES_VERSION="1.20.6-00"
-
 KUBERNETES_VERSION="1.22.6-00"
 OS=xUbuntu_20.04
 VERSION=1.23
@@ -18,14 +16,6 @@ VERSION=1.23
     ca-certificates \
     curl \
     gnupg \
-    lsb-release
-
-#curl -fsSL https://download.docker.com/linux/ubuntu/gpg |  gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-
-#
-echo 'deb http://deb.debian.org/debian buster-backports main' > /etc/apt/sources.list.d/backports.list
-apt update
-apt install -y -t buster-backports libseccomp2 || apt update -y -t buster-backports libseccomp2
 
 #install crio
 echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/$OS/ /" > /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
@@ -35,7 +25,7 @@ curl -L https://download.opensuse.org/repositories/devel:kubic:libcontainers:sta
 curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/$OS/Release.key | apt-key add -
 
 apt-get update
-apt-get install cri-o cri-o-runc cri-tools
+apt-get install cri-o cri-o-runc cri-tools -y
 
 # crio customize
 cat <<EOF |tee /etc/crio/crio.conf
