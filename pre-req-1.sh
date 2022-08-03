@@ -41,7 +41,7 @@ EOF
  
  sysctl --system
  
- 
+: ' 
 ###
 ## configuring Kubernetes repositories
 cat <<EOF |  tee /etc/yum.repos.d/kubernetes.repo
@@ -54,7 +54,7 @@ repo_gpgcheck=1
 gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
 exclude=kubelet kubeadm kubectl
 EOF
- 
+ '
 ## Set SELinux in permissive mode (effectively disabling it)
  setenforce 0
  sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
@@ -97,3 +97,9 @@ VERSION=1.24
 ##Install Kubernetes, specify Version as CRI-O
 yum install -y kubelet-1.24.0-0 kubeadm-1.24.0-0 kubectl-1.24.0-0 --disableexcludes=kubernetes
 '
+: '
+dnf module list cri-o
+  VERSION=1.18
+  dnf module enable cri-o:$VERSION
+  dnf install cri-o
+  '
