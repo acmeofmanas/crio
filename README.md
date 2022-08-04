@@ -31,19 +31,19 @@ echo "deb [signed-by=/usr/share/keyrings/libcontainers-crio-archive-keyring.gpg]
 ```
 ## Install CRI-O & start service
 ```
-1. apt update
-2. apt install -y cri-o cri-o-runc cri-tools
-3. systemctl enable crio —now
+ apt update
+ apt install -y cri-o cri-o-runc cri-tools
+ systemctl enable crio —now
 ```
 # Validate service status
 ```
-1. crictl -r unix:///run/crio/crio.sock version
+crictl -r unix:///run/crio/crio.sock version
 Version:  0.1.0
 RuntimeName:  cri-o
 RuntimeVersion:  1.21.7
 RuntimeApiVersion:  v1
 
-2. crictl info
+crictl info
 {
   "status": {
     "conditions": [
@@ -63,7 +63,7 @@ RuntimeApiVersion:  v1
   }
 }
 
-3. systemctl status crio
+systemctl status crio
 ● crio.service - Container Runtime Interface for OCI (CRI-O)
      Loaded: loaded (/lib/systemd/system/crio.service; enabled; vendor preset: enabled)
      Active: active (running) since Wed 2022-08-03 21:44:22 +08; 2h 5min ago
@@ -80,10 +80,10 @@ Aug 03 21:44:22 worker1 systemd[1]: Started Container Runtime Interface for OCI 
 ### Let's play now to run first container, as it's not as stright as docker run that you might have used to. 
 
 ```
-1. crictl pull nginx
+crictl pull nginx
 Image is up to date for docker.io/library/nginx@sha256:691eecfa41f219b32acea5a3561a8d8691d8320e5a00e1cb4574de5827e077a7
 
-2. crictl img
+crictl img
 IMAGE                     TAG                 IMAGE ID            SIZE
 docker.io/library/nginx   latest              f493a2ff29351       139MB
 
