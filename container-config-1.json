@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "name": "nginx-container-1",
+    "name": "nginx-container",
     "attempt": 1
   },
   "image": {

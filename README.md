@@ -117,6 +117,32 @@ cat >container-config-1.json <<EOF
   }
 }
 EOF
+```
+### once we have our config file let's run and start our container
+```
+1. crictl runp pod-config.json
+bc41cd776db7368c4094f8af5d9fc12a71a195821ec81cbd44093c07452904db
+
+2. crictl pods
+POD ID              CREATED             STATE               NAME                NAMESPACE           ATTEMPT             RUNTIME
+bc41cd776db73       29 seconds ago      Ready               ngnix-pod           default             1                   (default)
+3. crictl create bc41cd776db73 container-config-1.json pod-config.json
+026eabd68200fd936e2429fd23e8b2760b1375d4a3e29b0238f74a0604fe2855
+
+4. crictl pods
+POD ID              CREATED             STATE               NAME                NAMESPACE           ATTEMPT             RUNTIME
+bc41cd776db73       2 minutes ago       Ready               ngnix-pod           default             1                   (default)
+5. crictl ps
+CONTAINER           IMAGE               CREATED             STATE               NAME                ATTEMPT             POD ID
+6. crictl ps -a
+CONTAINER           IMAGE               CREATED             STATE               NAME                ATTEMPT             POD ID
+026eabd68200f       nginx               19 seconds ago      Created             nginx-container     1                   bc41cd776db73
+7. crictl start 026eabd68200f
+026eabd68200f
+8. crictl ps
+CONTAINER           IMAGE               CREATED             STATE               NAME                ATTEMPT             POD ID
+026eabd68200f       nginx               39 seconds ago      Running             nginx-container     1                   bc41cd776db73
+```
 
 cat >container-config-2.json <<EOF
 {
