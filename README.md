@@ -148,20 +148,3 @@ CONTAINER           IMAGE               CREATED             STATE               
 026eabd68200f       nginx               39 seconds ago      Running             nginx-container     1                   bc41cd776db73
 ```
 
-cat >container-config-2.json <<EOF
-{
-  "metadata": {
-    "name": "busybox",
-    "attempt": 1
-  },
-  "image": {
-    "image": "busybox"
-  },
-  "log_path": "busybox.log",
-  "linux": {
-    "security_context": {
-      "namespace_options": {}
-    }
-  }
-}
-EOF
