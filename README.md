@@ -10,9 +10,10 @@
 
 ## Setup CRI-O Repository:
 1. install pre-req dependecies 
+```
 - apt update
 - apt install -y apt-transport-https ca-certificates curl gnupg2 software-properties-common
-
+```
 2. set env for CRI-O & OS version
 - export OS_VERSION=xUbuntu_20.04
 - export CRIO_VERSION=1.21
