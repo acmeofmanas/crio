@@ -1,5 +1,5 @@
 # CRI-O Installation Instructions
-With the release of Kubernetes 1.24 a major change happened; which is removal of dockershim. So far the dockershim component of Kubernetes allows to use Docker as a Kubernetes's container runtime
+With the release of Kubernetes 1.24 a major change happened; which is removal of dockershim. So far the dockershim component of Kubernetes allows to use Docker as a Kubernetes's container runtime.
 
 ![this is ](https://d33wubrfki0l68.cloudfront.net/6b4290afef76cad8a084292cd1b5e468e31c9bb3/c26ce/images/blog/2018-05-24-kubernetes-containerd-integration-goes-ga/cri-containerd.png)
 
