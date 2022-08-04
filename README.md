@@ -79,7 +79,7 @@ Aug 03 21:44:22 worker1 crio[16084]: time="2022-08-03 21:44:22.800749410+08:00" 
 Aug 03 21:44:22 worker1 systemd[1]: Started Container Runtime Interface for OCI (CRI-O)
 ```
 ### Let's play now to run first container, as it's not as stright as docker run that you might have used to. 
-
+<sub> first let's pull image that we want to run</sub>
 ```
 crictl pull nginx
 Image is up to date for docker.io/library/nginx@sha256:691eecfa41f219b32acea5a3561a8d8691d8320e5a00e1cb4574de5827e077a7
@@ -89,7 +89,7 @@ IMAGE                     TAG                 IMAGE ID            SIZE
 docker.io/library/nginx   latest              f493a2ff29351       139MB
 
 ```
-#### we need to create first 2 files to run pod and container such as pod-config and container-config
+<sub>at first we need to create 2 files to run pod and container for this example we named it as pod-config.json and container-config.json</sub>
 ```
 cat >pod-config.json <<EOF 
 {
