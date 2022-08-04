@@ -99,6 +99,12 @@ cat >pod-config.json <<EOF
         "attempt": 1,
         "uid": "hdishd83djaidwnduwk28bcsb"
     },
+    "hostname": "nginx-proxy",
+    "port_mapping": [
+      {
+        "container_port": 80
+      }
+     ],
     "linux": {
     },
     "log_directory": "/tmp"
