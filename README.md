@@ -157,7 +157,9 @@ CONTAINER           IMAGE               CREATED             STATE               
 crictl ps -a
 CONTAINER           IMAGE               CREATED             STATE               NAME                ATTEMPT             POD ID
 026eabd68200f       nginx               19 seconds ago      Created             nginx-container     1                   bc41cd776db73
-
+```
+<sup> now we see the pod and container is ready but container state is still *Created*; so lets strt the container now</sup>
+```
 crictl start 026eabd68200f
 026eabd68200f
 
