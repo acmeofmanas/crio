@@ -140,6 +140,9 @@ bc41cd776db7368c4094f8af5d9fc12a71a195821ec81cbd44093c07452904db
 crictl pods
 POD ID              CREATED             STATE               NAME                NAMESPACE           ATTEMPT             RUNTIME
 bc41cd776db73       29 seconds ago      Ready               ngnix-pod           default             1                   (default)
+```
+<sup> now that pod is ready, let's create container inside this pod.</sup>
+*bc41cd776db73* is the pod id we will use in below syntax:
 
 crictl create bc41cd776db73 container-config-1.json pod-config.json
 026eabd68200fd936e2429fd23e8b2760b1375d4a3e29b0238f74a0604fe2855
