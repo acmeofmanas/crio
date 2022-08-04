@@ -1,5 +1,5 @@
 # CRI-O Installation Instructions
- Last month Kubernetes release 1.24 and it comes with a major change which is removal of dockershim. So far the dockershim component of Kubernetes allows to use Docker as a Kubernetes's container runtime
+With the release of Kubernetes 1.24 a major change happened; which is removal of dockershim. So far the dockershim component of Kubernetes allows to use Docker as a Kubernetes's container runtime
 
 ![this is ](https://d33wubrfki0l68.cloudfront.net/6b4290afef76cad8a084292cd1b5e468e31c9bb3/c26ce/images/blog/2018-05-24-kubernetes-containerd-integration-goes-ga/cri-containerd.png)
 
@@ -7,7 +7,7 @@
 
 *As an alternative to docker, CRI-O can be used to deploy your Kubernetes’s CRI. Few of the biggest contributor and user of [CRIO](https://cri-o.io) are Redhat,IBM,Hyper,Intel,Suse.*
 
-*** This guide will walk you through the installation of [CRI-O](https://github.com/cri-o/cri-o) runtime on Ubuntu and run your first pod and container on Ubuntu. CRI-O is [container runtime interface](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/node/container-runtime-interface-v1.md) designed to provide an integration path between OCI conformant runtime and kubelet.***
+***This guide will walk you through the installation of [CRI-O](https://github.com/cri-o/cri-o) runtime on Ubuntu and run your first pod and container on Ubuntu. CRI-O is [container runtime interface](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/node/container-runtime-interface-v1.md) designed to provide an integration path between OCI conformant runtime and kubelet.***
 
 ## Setup CRI-O Repository:
 1. install pre-req dependecies 
