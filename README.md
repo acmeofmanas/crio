@@ -128,8 +128,9 @@ cat >container-config-1.json <<EOF
   }
 }
 EOF
+
 ```
-### once we have our config file let's run and start our container
+<sub>now we have our config file let's run and start our container</sub>
 ```
 1. crictl runp pod-config.json
 bc41cd776db7368c4094f8af5d9fc12a71a195821ec81cbd44093c07452904db
