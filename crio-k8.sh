@@ -4,7 +4,7 @@
 
 KUBERNETES_VERSION="1.22.6-00"
 OS=xUbuntu_20.04
-VERSION=1.23
+VERSION=1.21
 # disable swap 
  swapoff -a
 # keeps the swaf off during reboot
