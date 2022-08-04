@@ -11,21 +11,24 @@
 ## Setup CRI-O Repository:
 1. install pre-req dependecies 
 ```
-- apt update
-- apt install -y apt-transport-https ca-certificates curl gnupg2 software-properties-common
+apt update
+apt install -y apt-transport-https ca-certificates curl gnupg2 software-properties-common
 ```
 2. set env for CRI-O & OS version
-- export OS_VERSION=xUbuntu_20.04
-- export CRIO_VERSION=1.21
-
+``` 
+export OS_VERSION=xUbuntu_20.04
+export CRIO_VERSION=1.21
+```
 3. add gpg key for repo
-- curl -fsSL https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/$OS_VERSION/Release.key |  gpg --dearmor -o /usr/share/keyrings/libcontainers-archive-keyring.gpg
-- curl -fsSL https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable:/cri-o:/$CRIO_VERSION/$OS_VERSION/Release.key |  gpg --dearmor -o /usr/share/keyrings/libcontainers-crio-archive-keyring.gpg
-
+```
+curl -fsSL https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/$OS_VERSION/Release.key |  gpg --dearmor -o /usr/share/keyrings/libcontainers-archive-keyring.gpg
+curl -fsSL https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable:/cri-o:/$CRIO_VERSION/$OS_VERSION/Release.key |  gpg --dearmor -o /usr/share/keyrings/libcontainers-crio-archive-keyring.gpg
+```
 4. add repo 
-- echo "deb [signed-by=/usr/share/keyrings/libcontainers-archive-keyring.gpg] https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/$OS_VERSION/ /" |  tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
-- echo "deb [signed-by=/usr/share/keyrings/libcontainers-crio-archive-keyring.gpg] https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable:/cri-o:/$CRIO_VERSION/$OS_VERSION/ /" |  tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable:cri-o:$CRIO_VERSION.list
-
+```
+echo "deb [signed-by=/usr/share/keyrings/libcontainers-archive-keyring.gpg] https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/$OS_VERSION/ /" |  tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
+echo "deb [signed-by=/usr/share/keyrings/libcontainers-crio-archive-keyring.gpg] https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable:/cri-o:/$CRIO_VERSION/$OS_VERSION/ /" |  tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable:cri-o:$CRIO_VERSION.list
+```
 ## Install CRI-O & start service
 ```
 1. apt update
