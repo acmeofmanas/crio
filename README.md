@@ -35,7 +35,8 @@ echo "deb [signed-by=/usr/share/keyrings/libcontainers-crio-archive-keyring.gpg]
  apt install -y cri-o cri-o-runc cri-tools
  systemctl enable crio —now
 ```
-# Validate service status
+# Validate CRI-O service status
+<sub>we can use below syntax to validate our cri-o service</sub>
 ```
 crictl -r unix:///run/crio/crio.sock version
 Version:  0.1.0
