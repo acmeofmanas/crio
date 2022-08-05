@@ -31,7 +31,7 @@ apt-get install cri-o cri-o-runc cri-tools -y
 cat <<EOF |tee /etc/crio/crio.conf
 [crio.runtime]
 conmon_cgroup = "pod"
-cgroup_manager = "cgroupfs"
+cgroup_manager = "systemd"
 EOF
 
 #start crio
